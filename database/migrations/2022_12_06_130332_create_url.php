@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('url', function (Blueprint $table) {
-            $table->id("u_id"));
+            $table->id("u_id");
             $table->string("url",250)->unique();
             $table->string("kapcsolat", 50);
             $table->string("tipus",30);
