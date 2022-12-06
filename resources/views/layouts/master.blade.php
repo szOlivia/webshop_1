@@ -11,6 +11,7 @@
     <title>Teszt</title>
 </head>
 <body>
-    
+    @include('kategoriak')
+    @yield('content')
 </body>
 </html>
