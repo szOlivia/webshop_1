@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\DB;
 
 
 Route::get('/', function () {
-    $kategoriak = DB::select("SELECT * FROM kategoriak");
+    $kategoriak = DB::select("SELECT kategoriak.nev, url.url 
+    FROM kategoriak INNER JOIN url ON (kategoriak.k_id=url.Kapcsolat) 
+    WHERE url.tipus='kategoria'");
         return view('welcome', ["kategoriak"=> $kategoriak]);
 });
 
