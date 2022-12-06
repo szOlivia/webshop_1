@@ -4,12 +4,19 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
+$url = DB::select("SELECT * FROM url");
 
+foreach($url as $egyUrl){
+    Route::get('/'.$egyUrl->url, function(){
+        return view($egyUrl->tipus;
+    });
+}
 Route::get('/', function () {
-    $kategoriak = DB::select("SELECT kategoriak.nev, url.url 
-    FROM kategoriak INNER JOIN url ON (kategoriak.k_id=url.Kapcsolat) 
-    WHERE url.tipus='kategoria'");
-        return view('welcome', ["kategoriak"=> $kategoriak]);
+        return view('welcome');
+});
+
+Route::get("/teszt", function(){
+    return view('teszt');
 });
 
 Route::get('/dashboard', function () {
